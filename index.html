@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FacilGest — Prototipo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="app">
+    <div class="phone" role="application" aria-label="Prototipo FacilGest">
+      <header class="topbar">
+        <div class="brand" aria-label="Cabecera">
+          <div class="logo" aria-hidden="true"></div>
+          <div>
+            <h1>FacilGest</h1>
+            <p>Servicios digitales — prototipo</p>
+          </div>
+        </div>
+        <div class="chip" aria-label="Entorno">local</div>
+      </header>
+
+      <main class="screens">
+        <section id="home" class="screen" aria-labelledby="homeTitle">
+          <h2 id="homeTitle" class="title">Inicio</h2>
+          <p class="subtitle">Accesos rápidos y estado general.</p>
+
+          <div class="card">
+            <div class="row headrow">
+              <div>
+                <div class="tag ok">● Sesión activa</div>
+                <h3 class="hello">Hola, Usuario</h3>
+                <p class="subtitle small">Resumen de tus gestiones.</p>
+              </div>
+              <a class="btn small ghost" href="#notificaciones">Notifs</a>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="grid2">
+              <div class="kpi">
+                <div>
+                  <strong>Expedientes</strong><br>
+                  <span>Activos</span>
+                </div>
+                <strong>3</strong>
+              </div>
+              <div class="kpi">
+                <div>
+                  <strong>Avisos</strong><br>
+                  <span>Pendientes</span>
+                </div>
+                <strong>1</strong>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="grid2">
+              <a class="btn primary full" href="#expedientes">Mis expedientes</a>
+              <a class="btn full" href="#tramite-1">Iniciar trámite</a>
+            </div>
+          </div>
+
+          <div class="mt card">
+            <h3 class="h3">Trámites frecuentes</h3>
+            <p class="subtitle">Elige un flujo guiado para reducir errores.</p>
+            <div class="list">
+              <a class="item" href="#tramite-1">
+                <div>
+                  <h3>Solicitud de certificado</h3>
+                  <p>Guía paso a paso · 3 min</p>
+                </div>
+                <div class="right"><span class="tag">Asistente</span></div>
+              </a>
+              <a class="item" href="#tramite-1">
+                <div>
+                  <h3>Instancia general</h3>
+                  <p>Adjunta documentación · borrador</p>
+                </div>
+                <div class="right"><span class="tag">Borrador</span></div>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section id="expedientes" class="screen" aria-labelledby="expTitle">
+          <h2 id="expTitle" class="title">Mis expedientes</h2>
+          <p class="subtitle">Consulta estados, historial y próximos pasos.</p>
+
+          <div class="card">
+            <div class="row">
+              <div class="flex1">
+                <label for="q">Buscar por número o título</label>
+                <input id="q" type="search" placeholder="Ej. 2026/001234 · Becas · Empadronamiento" />
+              </div>
+              <div class="w120">
+                <label for="filtro">Estado</label>
+                <select id="filtro">
+                  <option value="Todos">Todos</option>
+                  <option value="En revisión">En revisión</option>
+                  <option value="Pendiente doc.">Pendiente</option>
+                  <option value="Resuelto">Resuelto</option>
+                </select>
+              </div>
+            </div>
+            <p class="note">Nota: en este MVP, los datos están simulados.</p>
+          </div>
+
+          <div class="mt card">
+            <div class="list">
+              <a class="item" href="#expediente-detalle">
+                <div>
+                  <h3>Expediente 2026/001234</h3>
+                  <p>Solicitud de certificado · Último cambio: 30/01/2026</p>
+                </div>
+                <div class="right"><span class="tag warn">● Pendiente doc.</span></div>
+              </a>
+              <a class="item" href="#expediente-detalle">
+                <div>
+                  <h3>Expediente 2026/000987</h3>
+                  <p>Instancia general · Último cambio: 20/01/2026</p>
+                </div>
+                <div class="right"><span class="tag">● En revisión</span></div>
+              </a>
+              <a class="item" href="#expediente-detalle">
+                <div>
+                  <h3>Expediente 2025/009876</h3>
+                  <p>Subsanación · Último cambio: 12/12/2025</p>
+                </div>
+                <div class="right"><span class="tag ok">● Resuelto</span></div>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section id="expediente-detalle" class="screen" aria-labelledby="expDetTitle">
+          <div class="row between">
+            <div>
+              <h2 id="expDetTitle" class="title">Expediente 2026/001234</h2>
+              <p class="subtitle">Solicitud de certificado</p>
+            </div>
+            <a class="btn small ghost" href="#expedientes">Volver</a>
+          </div>
+
+          <div class="card">
+            <div class="row between top">
+              <div class="col gap6">
+                <span class="tag warn">● Pendiente de documentación</span>
+                <div class="note">Próximo paso: adjuntar documento de identidad.</div>
+              </div>
+              <a class="btn small primary" href="#tramite-1">Subsanar</a>
+            </div>
+
+            <div class="divider"></div>
+
+            <h3 class="h3">Historial</h3>
+            <div class="list">
+              <div class="item" role="article">
+                <div>
+                  <h3>30/01/2026 · Requerimiento</h3>
+                  <p>Falta adjuntar DNI o documento equivalente.</p>
+                </div>
+                <div class="right"><span class="tag warn">Acción</span></div>
+              </div>
+              <div class="item" role="article">
+                <div>
+                  <h3>28/01/2026 · Registro</h3>
+                  <p>Solicitud registrada correctamente.</p>
+                </div>
+                <div class="right"><span class="tag">Info</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt card">
+            <h3 class="h3">Accesibilidad</h3>
+            <p class="subtitle">Textos claros, foco visible y buen contraste.</p>
+            <div class="grid2">
+              <a class="btn full" href="#ayuda">Ayuda</a>
+              <a class="btn full" href="#notificaciones">Ver avisos</a>
+            </div>
+          </div>
+        </section>
+
+        <section id="notificaciones" class="screen" aria-labelledby="notiTitle">
+          <h2 id="notiTitle" class="title">Notificaciones</h2>
+          <p class="subtitle">Avisos importantes sobre tus expedientes.</p>
+
+          <div class="card">
+            <div class="list">
+              <div class="item" role="article">
+                <div>
+                  <h3>Documentación requerida</h3>
+                  <p>Expediente 2026/001234 · Adjunta DNI para continuar.</p>
+                </div>
+                <div class="right"><span class="tag warn">Pendiente</span></div>
+              </div>
+              <div class="item" role="article">
+                <div>
+                  <h3>Tu solicitud está en revisión</h3>
+                  <p>Expediente 2026/000987 · Te avisaremos al resolverse.</p>
+                </div>
+                <div class="right"><span class="tag">Info</span></div>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+            <a class="btn full" href="#expedientes">Ir a expedientes</a>
+          </div>
+        </section>
+
+        <section id="ayuda" class="screen" aria-labelledby="helpTitle">
+          <h2 id="helpTitle" class="title">Ayuda</h2>
+          <p class="subtitle">Respuestas rápidas y contacto.</p>
+
+          <div class="card">
+            <h3 class="h3">Preguntas frecuentes</h3>
+            <div class="divider"></div>
+
+            <div class="col">
+              <div>
+                <strong class="q">¿Qué significa “pendiente de documentación”?</strong>
+                <p class="subtitle">Que falta un archivo para continuar el trámite.</p>
+              </div>
+              <div>
+                <strong class="q">¿Puedo guardar un trámite y seguir luego?</strong>
+                <p class="subtitle">Sí, con “Guardar borrador”.</p>
+              </div>
+              <div>
+                <strong class="q">¿Cómo contacto con soporte?</strong>
+                <p class="subtitle">Consulta el canal de contacto oficial o pide cita.</p>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+            <div class="grid2">
+              <a class="btn full" href="#home">Volver a inicio</a>
+              <a class="btn full" href="#login">Cerrar sesión</a>
+            </div>
+          </div>
+        </section>
+
+        <section id="tramite-1" class="screen" aria-labelledby="t1Title">
+          <div class="row between">
+            <div>
+              <h2 id="t1Title" class="title">Iniciar trámite</h2>
+              <p class="subtitle">Asistente guiado · Paso 1 de 3</p>
+            </div>
+            <a class="btn small ghost" href="#home">Cancelar</a>
+          </div>
+
+          <div class="steps" aria-label="Progreso">
+            <span class="dot active" aria-label="Paso 1 activo"></span>
+            <span class="dot" aria-label="Paso 2"></span>
+            <span class="dot" aria-label="Paso 3"></span>
+          </div>
+
+          <div class="card">
+            <div class="col">
+              <div>
+                <label for="tipo">Tipo de trámite</label>
+                <select id="tipo">
+                  <option value="Solicitud de certificado">Solicitud de certificado</option>
+                  <option value="Instancia general">Instancia general</option>
+                  <option value="Subsanación">Subsanación</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="motivo">Motivo (obligatorio)</label>
+                <input id="motivo" type="text" placeholder="Ej. Solicitud de certificado de empadronamiento" />
+              </div>
+
+              <div class="grid2">
+                <a class="btn full" href="#borradores" id="btnBorrador1">Guardar borrador</a>
+                <a class="btn primary full" href="#tramite-2" id="btnContinuar1">Continuar</a>
+              </div>
+              <p class="note">Prevención de errores: campos obligatorios claramente indicados.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="tramite-2" class="screen" aria-labelledby="t2Title">
+          <div class="row between">
+            <div>
+              <h2 id="t2Title" class="title">Documentación</h2>
+              <p class="subtitle">Paso 2 de 3</p>
+            </div>
+            <a class="btn small ghost" href="#tramite-1">Atrás</a>
+          </div>
+
+          <div class="steps" aria-label="Progreso">
+            <span class="dot"></span>
+            <span class="dot active" aria-label="Paso 2 activo"></span>
+            <span class="dot"></span>
+          </div>
+
+          <div class="card">
+            <div class="col">
+              <div>
+                <label for="doc">Adjuntar DNI (simulado)</label>
+                <input id="doc" type="text" placeholder="DNI_subido.pdf (simulación)" />
+                <p class="note">En el MVP no se suben archivos reales: se representa el flujo.</p>
+              </div>
+              <div>
+                <label for="obs">Observaciones</label>
+                <textarea id="obs" rows="4" placeholder="Añade información adicional si es necesario"></textarea>
+              </div>
+
+              <div class="grid2">
+                <a class="btn full" href="#borradores" id="btnBorrador2">Guardar borrador</a>
+                <a class="btn primary full" href="#tramite-3" id="btnContinuar2">Continuar</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="tramite-3" class="screen" aria-labelledby="t3Title">
+          <div class="row between">
+            <div>
+              <h2 id="t3Title" class="title">Revisión</h2>
+              <p class="subtitle">Paso 3 de 3</p>
+            </div>
+            <a class="btn small ghost" href="#tramite-2">Atrás</a>
+          </div>
+
+          <div class="steps" aria-label="Progreso">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot active"></span>
+          </div>
+
+          <div class="card">
+            <h3 class="h3">Resumen</h3>
+            <div class="divider"></div>
+
+            <div class="col gap8">
+              <div class="kpi">
+                <div><strong>Trámite</strong><br><span>Seleccionado</span></div>
+                <strong id="resumenTramite">Certificado</strong>
+              </div>
+              <div class="kpi">
+                <div><strong>Documento</strong><br><span>Adjunto</span></div>
+                <strong>Sí</strong>
+              </div>
+              <div class="kpi">
+                <div><strong>Canal</strong><br><span>Notificaciones</span></div>
+                <strong>Activado</strong>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="grid2">
+              <a class="btn full" href="#borradores">Guardar borrador</a>
+              <a class="btn primary full" href="#confirmacion" id="btnEnviar">Enviar solicitud</a>
+            </div>
+          </div>
+        </section>
+
+        <section id="confirmacion" class="screen" aria-labelledby="confTitle">
+          <h2 id="confTitle" class="title">Solicitud enviada</h2>
+          <p class="subtitle">Tu trámite se ha registrado correctamente.</p>
+
+          <div class="card">
+            <div class="row between top">
+              <div class="col gap6">
+                <span class="tag ok">● Registro correcto</span>
+                <div class="note">Resguardo (simulado)</div>
+              </div>
+              <span class="tag">PDF</span>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="col">
+              <div class="kpi">
+                <div><strong>Código</strong><br><span>Identificador</span></div>
+                <strong>RG-2026-1A2B</strong>
+              </div>
+              <div class="kpi">
+                <div><strong>Fecha</strong><br><span>Registro</span></div>
+                <strong id="fechaRegistro">31/01/2026</strong>
+              </div>
+              <div class="kpi">
+                <div><strong>Estado</strong><br><span>Inicial</span></div>
+                <strong>En revisión</strong>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="grid2">
+              <a class="btn full" href="#expediente-detalle">Ver expediente</a>
+              <a class="btn primary full" href="#home">Volver a inicio</a>
+            </div>
+          </div>
+        </section>
+
+        <section id="borradores" class="screen" aria-labelledby="borTitle">
+          <h2 id="borTitle" class="title">Borradores</h2>
+          <p class="subtitle">Trámites guardados para continuar más tarde.</p>
+
+          <div class="card">
+            <div class="list">
+              <div class="item" role="article" id="borradorVacio">
+                <div>
+                  <h3>No hay borradores guardados</h3>
+                  <p>Usa "Guardar borrador" dentro del asistente técnico.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+            <a class="btn primary full" href="#tramite-1">Nuevo trámite</a>
+          </div>
+        </section>
+
+        <section id="login" class="screen" aria-labelledby="loginTitle">
+          <h2 id="loginTitle" class="title">Acceso</h2>
+          <p class="subtitle">Autenticación simulada para el MVP.</p>
+
+          <div class="card">
+            <div class="col">
+              <div>
+                <label for="dni">Identificador</label>
+                <input id="dni" type="text" placeholder="DNI / Usuario" autocomplete="username" />
+              </div>
+
+              <div>
+                <label for="pin">PIN</label>
+                <input id="pin" type="password" placeholder="••••" autocomplete="current-password" />
+              </div>
+
+              <a class="btn primary full" href="#home" id="btnEntrar">Entrar</a>
+
+              <div class="divider"></div>
+              <p class="note">Accesibilidad: contraste alto, foco visible y textos claros.</p>
+              <a class="btn full" href="#ayuda">Necesito ayuda</a>
+            </div>
+          </div>
+        </section>
+
+        <nav class="bottomnav" aria-label="Navegación inferior">
+          <div class="tabs">
+            <a class="tab" href="#home">Inicio</a>
+            <a class="tab" href="#expedientes">Expedientes</a>
+            <a class="tab" href="#tramite-1">Trámite</a>
+            <a class="tab" href="#ayuda">Ayuda</a>
+          </div>
+        </nav>
+      </main>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
