@@ -3,37 +3,43 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>FacilGest — Prototipo</title>
+  <title>FacilGest · Tu espacio ciudadano</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
   <div class="app">
-    <div class="phone" role="application" aria-label="Prototipo FacilGest">
+    <div class="phone" aria-label="Prototipo FacilGest">
       <header class="topbar">
         <div class="brand" aria-label="Cabecera">
           <div class="logo" aria-hidden="true"></div>
           <div>
             <h1>FacilGest</h1>
-            <p>Servicios digitales — prototipo</p>
+            <p>Tu espacio ciudadano</p>
           </div>
         </div>
-        <div class="chip" aria-label="Entorno">local</div>
+        <div class="chip" aria-label="Entorno">Entorno demo</div>
       </header>
 
-      <main class="screens">
+      <aside class="sidebar" aria-label="Navegación principal">
+ <p class="nav-label">MI ESPACIO</p>
+ <a href="#home">⌂ <span>Resumen</span></a><a href="#expedientes">▤ <span>Mis expedientes</span><small>3</small></a><a href="#borradores">▧ <span>Borradores</span></a><a href="#notificaciones">○ <span>Notificaciones</span><small>1</small></a>
+ <div class="sidebar-help"><span>Estamos para ayudarte</span><p>Un paso más cerca de resolverlo.</p><a href="#ayuda">Centro de ayuda →</a></div>
+ <a href="#login" data-logout>→ <span>Cerrar sesión</span></a>
+ </aside><main class="screens" id="contenido">
         <section id="home" class="screen" aria-labelledby="homeTitle">
-          <h2 id="homeTitle" class="title">Inicio</h2>
-          <p class="subtitle">Accesos rápidos y estado general.</p>
+          <div class="eyebrow">MENOS PAPELEO. MÁS TIEMPO PARA TI.</div><h2 id="homeTitle" class="title">Todo en orden.<br>Todo a tu alcance.</h2>
+          <p class="subtitle">Tus trámites, documentos y avisos. Un único lugar, sin complicaciones.</p>
 
-          <div class="card">
+          <div class="card overview">
             <div class="row headrow">
               <div>
-                <div class="tag ok">● Sesión activa</div>
+                <div class="tag ok">● Tu espacio está al día</div>
                 <h3 class="hello">Hola, Usuario</h3>
                 <p class="subtitle small">Resumen de tus gestiones.</p>
               </div>
-              <a class="btn small ghost" href="#notificaciones">Notifs</a>
+              <a class="btn small ghost" href="#notificaciones">Ver avisos →</a>
             </div>
 
             <div class="divider"></div>
@@ -59,11 +65,11 @@
 
             <div class="grid2">
               <a class="btn primary full" href="#expedientes">Mis expedientes</a>
-              <a class="btn full" href="#tramite-1">Iniciar trámite</a>
+              <a class="btn full" href="#tramite-1">＋ Nuevo trámite</a>
             </div>
           </div>
 
-          <div class="mt card">
+          <a class="attention" href="#expediente-detalle"><span class="attention-icon">!</span><div><strong>Un documento y seguimos</strong><p>Tu solicitud de certificado necesita documentación.</p></div><span aria-hidden="true">→</span></a><div class="mt card"><div class="eyebrow">¿POR DÓNDE EMPEZAMOS?</div>
             <h3 class="h3">Trámites frecuentes</h3>
             <p class="subtitle">Elige un flujo guiado para reducir errores.</p>
             <div class="list">
@@ -105,7 +111,7 @@
                 </select>
               </div>
             </div>
-            <p class="note">Nota: en este MVP, los datos están simulados.</p>
+            <p class="note" id="resultados" role="status">3 expedientes · Datos de demostración</p>
           </div>
 
           <div class="mt card">
@@ -237,7 +243,7 @@
             <div class="divider"></div>
             <div class="grid2">
               <a class="btn full" href="#home">Volver a inicio</a>
-              <a class="btn full" href="#login">Cerrar sesión</a>
+              <a class="btn full" href="#login" data-logout>Cerrar sesión</a>
             </div>
           </div>
         </section>
@@ -270,7 +276,7 @@
 
               <div>
                 <label for="motivo">Motivo (obligatorio)</label>
-                <input id="motivo" type="text" placeholder="Ej. Solicitud de certificado de empadronamiento" />
+                <input maxlength="250" id="motivo" type="text" placeholder="Ej. Solicitud de certificado de empadronamiento" />
               </div>
 
               <div class="grid2">
@@ -343,7 +349,7 @@
               </div>
               <div class="kpi">
                 <div><strong>Documento</strong><br><span>Adjunto</span></div>
-                <strong>Sí</strong>
+                <strong id="resumenDocumento">Sin documento</strong>
               </div>
               <div class="kpi">
                 <div><strong>Canal</strong><br><span>Notificaciones</span></div>
@@ -354,7 +360,7 @@
             <div class="divider"></div>
 
             <div class="grid2">
-              <a class="btn full" href="#borradores">Guardar borrador</a>
+              <a class="btn full" href="#borradores" id="btnBorrador3">Guardar borrador</a>
               <a class="btn primary full" href="#confirmacion" id="btnEnviar">Enviar solicitud</a>
             </div>
           </div>
@@ -362,7 +368,7 @@
 
         <section id="confirmacion" class="screen" aria-labelledby="confTitle">
           <h2 id="confTitle" class="title">Solicitud enviada</h2>
-          <p class="subtitle">Tu trámite se ha registrado correctamente.</p>
+          <p class="subtitle">Hemos completado el envío de demostración.</p>
 
           <div class="card">
             <div class="row between top">
@@ -378,7 +384,7 @@
             <div class="col">
               <div class="kpi">
                 <div><strong>Código</strong><br><span>Identificador</span></div>
-                <strong>RG-2026-1A2B</strong>
+                <strong id="registroCodigo">—</strong>
               </div>
               <div class="kpi">
                 <div><strong>Fecha</strong><br><span>Registro</span></div>
@@ -419,14 +425,14 @@
         </section>
 
         <section id="login" class="screen" aria-labelledby="loginTitle">
-          <h2 id="loginTitle" class="title">Acceso</h2>
-          <p class="subtitle">Autenticación simulada para el MVP.</p>
+          <div class="eyebrow">BIENVENIDO A FACILGEST</div><h2 id="loginTitle" class="title">La administración,<br>un poco más fácil.</h2>
+          <p class="subtitle">Entra en tu espacio y sigue justo donde lo dejaste.</p>
 
           <div class="card">
             <div class="col">
               <div>
                 <label for="dni">Identificador</label>
-                <input id="dni" type="text" placeholder="DNI / Usuario" autocomplete="username" />
+                <input maxlength="60" id="dni" type="text" placeholder="DNI / Usuario" autocomplete="username" />
               </div>
 
               <div>
@@ -437,7 +443,7 @@
               <a class="btn primary full" href="#home" id="btnEntrar">Entrar</a>
 
               <div class="divider"></div>
-              <p class="note">Accesibilidad: contraste alto, foco visible y textos claros.</p>
+              <p class="note">Estás en una demo: usa un nombre y un PIN inventados. No introduzcas datos personales reales.</p>
               <a class="btn full" href="#ayuda">Necesito ayuda</a>
             </div>
           </div>
@@ -451,7 +457,7 @@
             <a class="tab" href="#ayuda">Ayuda</a>
           </div>
         </nav>
-      </main>
+      <footer>FacilGest <span>Hecho para ponértelo fácil · Demo</span></footer></main>
     </div>
   </div>
   <script src="script.js"></script>
